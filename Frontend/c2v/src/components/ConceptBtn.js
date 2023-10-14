@@ -1,4 +1,4 @@
-import "./ConceptBtn.css"
+import "../ConceptBtn.css"
 
 const ConceptButton = () => {
     return (

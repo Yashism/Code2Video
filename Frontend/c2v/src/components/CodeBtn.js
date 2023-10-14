@@ -1,4 +1,4 @@
-import "./CodeBtn.css"
+import "../CodeBtn.css"
 
 const CodeButton = () => {
     return (

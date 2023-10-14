@@ -1,6 +1,6 @@
 import ConceptButton from "./ConceptBtn";
 import CodeButton from "./CodeBtn";
-import "./Create.css"
+import "../Create.css"
 
 const InputBox = () => {
   const [text, setText] = useState('');
