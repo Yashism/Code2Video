@@ -8,4 +8,4 @@ const ConceptButton = () => {
     );
   };
   
-  export default CodeButton;
+  export default ConceptButton;
