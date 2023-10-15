@@ -3,8 +3,10 @@ import "../CodeBtn.css"
 const CodeButton = () => {
     return (
       <button>
-        Code
-      </button>
+        <span>
+          CODE
+        </span>
+  </button>
     );
   };
   

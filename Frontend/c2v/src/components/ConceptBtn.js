@@ -3,7 +3,9 @@ import "../ConceptBtn.css"
 const ConceptButton = () => {
     return (
       <button>
-        Concept
+        <span>
+            CONCEPT
+        </span>
       </button>
     );
   };
