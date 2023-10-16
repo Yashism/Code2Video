@@ -1,54 +1,60 @@
 
 import React, { useState } from "react";
 
-const Projects = ({ projects, createProject }) => {
+const MyComponent = () => {
+  const [projectName, setProjectName] = useState('');
+
+  const handleClick = () => {
+    const projectName = prompt('Enter the name of the project:');
+    setProjectName(projectName);
+  };
+
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <div className="container mx-auto py-8">
-        <h1 className="text-3xl font-bold mb-8">User Projects</h1>
-
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {projects.map((project) => (
-            <li key={project.id} className="bg-white p-4 rounded shadow">
-              <h2 className="text-lg font-bold">{project.name}</h2>
-              {/* Additional project details */}
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-8 flex items-center justify-center">
-          <button
-            className="bg-white p-4 rounded-full shadow-lg"
-            onClick={createProject}
-          >
-            <span className="text-4xl text-gray-400">+ </span>
-            <span className="text-4xl text-white-400">Create Project</span>
-          </button>
-        </div>
-      </div>
+    <div>
+      <h1 className="text-3xl font-bold mb-4">User Projects</h1>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleClick}>
+        Create Project <span className="ml-2">&#43;</span>
+      </button>
+      {projectName && <p className="mt-4">New project name: {projectName}</p>}
     </div>
   );
 };
 
-const MyComponent = () => {
-  const [projects, setProjects] = useState([]);
-
-  // Function to create a new project
-  const createProject = () => {
-    // Logic to create a new project
-    const newProject = {
-      id: projects.length + 1,
-      name: "New Project",
-    };
-
-    setProjects([...projects, newProject]);
-  };
-
-  return <Projects projects={projects} createProject={createProject} />;
-};
-
 export default MyComponent;
 
+// const createProjectBtn = document.getElementById("createProjectBtn");
+// const projectList = document.getElementById("projectList");
+
+// createProjectBtn.addEventListener("click", () => {
+//   const projectName = prompt("Enter the name of the project:");
+//   if (projectName !== null && projectName.trim() !== "") {
+//     const projectBox = document.createElement("div");
+//     projectBox.className = "project-box";
+//     projectBox.innerHTML = `
+//       <span>${projectName}</span>
+//       <div class="edit-buttons">
+//         <button class="edit-btn">Edit</button>
+//         <button class="delete-btn">Delete</button>
+//       </div>
+//     `;
+
+//     projectBox.querySelector(".edit-btn").addEventListener("click", () => {
+//       const newName = prompt("Enter the new name of the project:");
+//       if (newName !== null && newName.trim() !== "") {
+//         projectBox.querySelector("span").textContent = newName;
+//       }
+//     });
+
+//     projectBox.querySelector(".delete-btn").addEventListener("click", () => {
+//       projectList.removeChild(projectBox);
+//     });
+
+//     projectList.appendChild(projectBox);
+//   }
+// });
+
+// export createProjectBtn;
+//export default MyComponent;
 
 
 
@@ -64,41 +70,3 @@ export default MyComponent;
 
 
 
-
-
-// import React, { useState } from 'react';
-
-// const Projects = () => {
-//   const [projectCount, setProjectCount] = useState(0);
-
-//   // Replace this mock data with your actual data source
-//   const userProjects = []; // Example: Fetch user projects and store them in this array
-
-//   // Update the project count based on the actual number of user projects
-//   useEffect(() => {
-//     setProjectCount(userProjects.length);
-//   }, [userProjects]);
-
-//   return (
-//     <div className="bg-gray-100 min-h-screen">
-//       <div className="container mx-auto py-8">
-//         <h1 className="text-3xl font-bold mb-8">User Projects</h1>
-
-//         {projectCount > 0 ? (
-//           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-//             {/* Render user projects here */}
-//             </ul>
-//             ) : (
-//               <div>
-//                 <p>You have no projects.</p>
-//                 <button className="bg-blue-500 text-white px-4 py-2 mt-4">
-//                   Create Project
-//                 </button>
-//               </div>
-//             )}
-//           </div>
-//         </div>
-//       );
-//     };
-
-//     export default Projects;
