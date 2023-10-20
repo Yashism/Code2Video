@@ -3,7 +3,7 @@ import os
 import shutil
 import subprocess
 
-api_key = '<key>'
+api_key = '<Key>'
 limit = 1  # Number of results you want to retrieve
 
 # Define the API endpoint URL
@@ -45,7 +45,7 @@ for keyword in keywords:
             # Check if the request was successful
             if response.status_code == 200:
                 # Open a file in write-binary mode and save the GIF
-                with open(f'gifs/{keyword}.gif', 'wb') as out_file:
+                with open(f'../Generation/gifs/{keyword}.gif', 'wb') as out_file:
                     shutil.copyfileobj(response.raw, out_file)
             else:
                 print(f'Error: {response.status_code}')

@@ -1,5 +1,0 @@
-curl -X POST \
-     -H "Content-Type: application/json" \
-     -H "x-api-key: ePQxd1DMxTHcSIyahuIEOzGQwEQdcrMyBHnO01mj" \
-     -d @hello.json \
-     https://api.shotstack.io/edit/stage/render

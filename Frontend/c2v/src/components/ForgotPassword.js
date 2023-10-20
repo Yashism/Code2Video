@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
-import { useAuth } from "../contexts/AuthContext.js";
+import { useAuth } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
+import "../ForgotPassword.css";
 
 export default function ForgotPassword() {
   const emailRef = useRef(null);
@@ -23,41 +24,65 @@ export default function ForgotPassword() {
         await resetPassword(email);
         setMessage("Check your inbox for further instructions");
       } catch (error) {
-        setError("Failed to reset password:");
+        setError("Failed to reset password: ");
+        console.error("Error message: " + error.message);
       }
       setLoading(false);
     }
   };
 
   return (
-    <>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Password Reset</h2>
+    <div className="wrapper">
+      <div className="flip-card__inner">
+        <div className="flip-card__front">
+          <div className="title">Reset Password</div>
           {error && <Alert variant="danger">{error}</Alert>}
           {message && <Alert variant="success">{message}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Button
-              disabled={loading}
-              className="w-100"
-              style={{ marginTop: "20px" }}
+          <form onSubmit={handleSubmit} className="flip-card__form">
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              className="flip-card__input"
+              ref={emailRef}
+              required
+            />
+            <button
+              onClick={handleSubmit}
               type="submit"
+              className="flip-card__btn"
+              disabled={loading}
             >
-              Reset Password
-            </Button>
-          </Form>
-          <div className="w-100 text-center mt-3">
-            <Link to="/login">Login</Link>
+              Confirm
+            </button>
+          </form>
+          <div className="link-container">
+            <Link
+              to="/Signup"
+              className="already_acc"
+              style={{ color: "#fff" }}
+            >
+              Sign Up
+            </Link>
+            <Link
+              to="/Login"
+              className="already_acc"
+              style={{
+                color: "#fff",
+                textAlign: "center",
+                margin: "20px 0 20px 0",
+                width: " 220px",
+                height: "50px ",
+              }}
+            >
+              Login
+            </Link>
           </div>
-        </Card.Body>
-      </Card>
+        </div>
+      </div>
       <div className="w-100 text-center mt-2">
         Need an account? <Link to="/Signup">Sign Up</Link>
       </div>
-    </>
+    </div>
   );
 }

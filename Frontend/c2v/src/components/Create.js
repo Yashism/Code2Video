@@ -26,10 +26,11 @@ const InputBox = () => {
       ></textarea>
       <div className="topline"></div>
       <div className="underline"></div>
-      <div className="flex justify-between mt-4">
-        <ConceptButton style={{ marginTop: "50px" }} />
-        <CodeButton style={{ marginTop: "50px" }}/>
+      <div className="flex justify-between mt-6 space-x-8">
+        <ConceptButton />
+        <CodeButton />
       </div>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Generate</button>
     </div>
   );
 };

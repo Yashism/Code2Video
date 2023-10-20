@@ -6,7 +6,7 @@ url = "https://api.elevenlabs.io/v1/text-to-speech/TX3LPaxmHKxFdv7VOQHJ"
 headers = {
     "Accept": "audio/mpeg",
     "Content-Type": "application/json",
-    "xi-api-key": "<key>"  
+    "xi-api-key": "<Key>"  
 }
 
 # Take text from audio.txt
@@ -26,7 +26,7 @@ response = requests.post(url, json=data, headers=headers)
 
 if response.status_code == 200:
     # Save the audio to a file
-    with open('output.mp3', 'wb') as f:
+    with open('../Generation/audio/output.mp3', 'wb') as f:
         for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
             if chunk:
                 f.write(chunk)
