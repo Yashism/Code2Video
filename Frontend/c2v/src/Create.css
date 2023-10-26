@@ -1,78 +1,79 @@
 .input-container {
-    position: relative;
-  }
- 
-  #textbox {
-   padding: 10px;
-   height: 200px; /* Increase the height value */
-   width: 380px;
-   border: 2px solid #000000;
-   border-top: none;
-   border-bottom: none;
-   font-size: 16px;
-   background: transparent;
-   outline: none;
-   box-shadow: 7px 7px 0px 0px #000000;
-   transition: all 0.5s;
- }
- 
-  #textbox:focus {
-    box-shadow: none;
-    transition: all 0.5s;
-  }
- 
-  .label {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: #000000;
-    transition: all 0.5s;
-    transform: scale(0);
-    z-index: -1;
-  }
- 
-  .input-container .topline {
-    position: absolute;
-    content: "";
-    background-color: #000000;
-    width: 0%;
-    height: 2px;
-    right: 0;
-    top: 0;
-    transition: all 0.5s;
-  }
- 
-  #textbox:focus ~ .topline {
-    width: 35%;
-    transition: all 0.5s;
-  }
- 
-  .input-container .underline {
-    position: absolute;
-    content: "";
-    background-color: #000000;
-    width: 0%;
-    height: 2px;
-    right: 0;
-    bottom: 0;
-    transition: all 0.5s;
-  }
- 
-  #textbox:focus ~ .underline {
-    width: 100%;
-    transition: all 0.5s;
-  }
- 
-  #textbox:focus ~ .label {
-    top: -10px;
-    transform: scale(1);
-    transition: all 0.5s;
-  }
-  .text-lg {
-    font-family: monospace;
-    font-size: 24px;
-  }
-  body {
-    background-color: rgb(226, 226, 226);
-  }
- 
+  position: relative;
+}
+
+#textbox {
+  padding: 10px;
+  height: 200px; 
+  width: 380px;
+  border: 2px solid #000000;
+  border-top: none;
+  border-bottom: none;
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+  box-shadow: 7px 7px 0px 0px #000000;
+  transition: all 0.5s;
+}
+
+#textbox:focus {
+  box-shadow: none;
+  transition: all 0.5s;
+}
+
+.label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #000000;
+  transition: all 0.5s;
+  transform: scale(0);
+  z-index: -1;
+}
+
+.input-container .topline {
+  position: absolute;
+  content: "";
+  background-color: #000000;
+  width: 0%;
+  height: 2px;
+  right: 0;
+  top: 0;
+  transition: all 0.5s;
+}
+
+#textbox:focus ~ .topline {
+  width: 35%;
+  transition: all 0.5s;
+}
+
+.input-container .underline {
+  position: absolute;
+  content: "";
+  background-color: #000000;
+  width: 0%;
+  height: 2px;
+  right: 0;
+  bottom: 0;
+  transition: all 0.5s;
+}
+
+#textbox:focus ~ .underline {
+  width: 100%;
+  transition: all 0.5s;
+}
+
+#textbox:focus ~ .label {
+  top: -10px;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+
+.text-lg {
+  font-family: monospace;
+  font-size: 24px;
+}
+
+body {
+  background-color: #212121;
+}

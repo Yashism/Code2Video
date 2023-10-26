@@ -1,5 +1,9 @@
 import subprocess
 
+#Clear Generated Files
+subprocess.call(["rm", "../Generation/audio/output.mp3"])
+
+
 print("Hey, this is Code2Video. Our code-to-video conversion provides an alternative method for learners to grasp coding concepts.")
 
 choice = input("Do you want to enter a code or a concept? (Enter 'code' or 'concept'): ")
@@ -10,3 +14,5 @@ elif choice.lower() == 'concept':
    subprocess.call(["python3", "concept_script.py"])
    
 print("All resources saved...")
+subprocess.call(["python3", "explain.py"])
+

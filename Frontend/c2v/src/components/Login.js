@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { signInWithGoogle } from "../Firebase";
 import { useAuth } from "../contexts/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../Login.css";
 
 export default function Login() {
@@ -10,7 +10,13 @@ export default function Login() {
   const passwordRef = useRef(null);
   const { login } = useAuth();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
+  if (currentUser) {
+    navigate("/Projects");
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -20,82 +26,69 @@ export default function Login() {
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
       console.log("Login succesful");
-    } catch {
+      navigate("/Projects");
+    } catch (error) {
+      console.error("Failed to sign in: ", error.message);
       setError("Failed to sign in");
-      console.log("Failed to sign in");
     }
     setLoading(false);
   }
 
   return (
-    <>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Login</h2>
-          <div className="wrapper">
-            <div className="card-switch">
-              <label className="switch">
-                <input className="toggle" type="checkbox" />
-                <span className="slider"></span>
-                <span className="card-side"></span>
-                <div className="flip-card__inner">
-                  <div className="flip-card__front">
-                    <div className="title">Log in</div>
-                    <Form>
-                      <Form.Group controlId="email">
-                        <Form.Control
-                          type="email"
-                          placeholder="Email"
-                          ref={emailRef}
-                          required
-                        />
-                      </Form.Group>
-                      <Form.Group controlId="password">
-                        <Form.Control
-                          type="password"
-                          placeholder="Password"
-                          ref={passwordRef}
-                          required
-                        />
-                      </Form.Group>
-                      <Button className="flip-card__btn" type="submit">
-                        Let`s go!
-                      </Button>
-                      <Link to="/ForgotPassword">Forgot Password?</Link>
-                      <Link to="/Signup">Sign Up</Link>
-                    </Form>
-                  </div>
-                  <div className="flip-card__back">
-                    <div className="title">Sign up</div>
-                    <Form>
-                      <Form.Group controlId="name">
-                        <Form.Control type="name" placeholder="Name" required />
-                      </Form.Group>
-                      <Form.Group controlId="email">
-                        <Form.Control
-                          type="email"
-                          placeholder="Email"
-                          ref={emailRef}
-                          required
-                        />
-                      </Form.Group>
-                      <Form.Group controlId="password">
-                        <Form.Control
-                          type="password"
-                          placeholder="Password"
-                          ref={passwordRef}
-                          required
-                        />
-                      </Form.Group>
-                      <Button className="flip-card__btn">Confirm!</Button>
-                    </Form>
-                  </div>
-                </div>
-              </label>
-            </div>
+    <div className="wrapper">
+      <div className="flip-card__inner">
+        <div className="flip-card__front">
+          <div className="title">Login</div>
+          <form onSubmit={handleSubmit} className="flip-card__form">
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              className="flip-card__input"
+              ref={emailRef}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              className="flip-card__input"
+              ref={passwordRef}
+              required
+            />
+            <button
+              onClick={handleSubmit}
+              type="submit"
+              className="flip-card__btn"
+              disabled={loading}
+            >
+              Confirm
+            </button>
+            {error && (
+              <p style={{ color: "red", marginTop: "10px" }}>{error}</p>
+            )}
+          </form>
+
+          <div className="link-container">
+            <Link to="/Signup" className="already_acc" style={{ color: "#fff" }}>
+              Sign Up
+            </Link>
+            <Link
+              to="/ForgotPassword"
+              className="already_acc"
+              style={{
+                color: "#fff",
+                textAlign: "center",
+                margin: "20px 0 20px 0",
+                width: " 220px",
+                height: "50px ",
+              }}
+            >
+              Forgot Password?
+            </Link>
           </div>
-        </Card.Body>
-      </Card>
-    </>
+        </div>
+      </div>
+    </div>
   );
 }

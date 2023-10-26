@@ -2,7 +2,7 @@ import openai
 import subprocess
 
 model_id = "gpt-3.5-turbo"
-openai.api_key = "<key>"
+openai.api_key = "<Key>"
 
 
 def index():
@@ -13,7 +13,7 @@ def index():
     with open('concept_input.txt', 'r') as f:
         content = f.read()
     print("Generating script...")
-    summary_prompt = f"Write a audio script explainaing the concept of {content}. Explan it like a 5 year old. Explain it in detail. Everything in 1 paragraph. Max 100 words.  Start with the script. No text before it. Avoid starting with - Sure, ..... Start directly - <concept>....."
+    summary_prompt = f"Write a audio script explainaing the concept of {content}. Explan it like a 5 year old. Explain it in detail. Everything in 1 paragraph. Max 250 words.  Start with the script. No text before it. Avoid starting with - Sure, ..... Start directly - <concept>....."
     
     response = openai.ChatCompletion.create(
       model="gpt-3.5-turbo",

@@ -4,12 +4,24 @@ import "../App.css"; // Import the CSS
 import Signup from "./Signup";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Login from "./Login";
 import ForgotPassword from "./ForgotPassword";
 import PrivateRoute from "./PrivateRoute";
 import Home from "./Home";
 import Create from "./Create";
 import Projects from "./Projects";
+import { useAuth } from "../contexts/AuthContext";
+
+
+function DefaultComponent() {
+  const { currentUser } = useAuth();
+  return currentUser ? (
+    <Navigate to="/Projects" replace />
+  ) : (
+    <Navigate to="/Login" replace />
+  );
+}
 
 function App() {
   return (
@@ -21,6 +33,7 @@ function App() {
         <Router>
           <AuthProvider>
             <Routes>
+              <Route path="/" element={<DefaultComponent />} />
               <Route path="/Signup" element={<Signup />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/ForgotPassword" element={<ForgotPassword />} />
