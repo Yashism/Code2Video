@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import ConceptButton from "./ConceptBtn";
 import CodeButton from "./CodeBtn";
 import MenuButton from "./MenuBtn";
+import OptButton from "./OptionBtn";
+import GenerateButton from "./Generate";
 import "../Create.css"; // Make sure to import your CSS file
 
 const InputBox = () => {
@@ -13,9 +15,6 @@ const InputBox = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="top-left">
-        <MenuButton /> 
-      </div>
       <p className="text-lg font-semibold mb-2">Ready to see your code come to life? Enter your code or a concept below to get started.</p>
       <textarea
         id="textbox"
@@ -23,14 +22,18 @@ const InputBox = () => {
         value={text}
         onChange={handleChange}
         placeholder="Start typing here"
+        style={{ margin: "10px 0" }} 
       ></textarea>
       <div className="topline"></div>
       <div className="underline"></div>
       <div className="flex justify-between mt-6 space-x-8">
-        <ConceptButton />
-        <CodeButton />
+        <div className="input-container">
+          <OptButton />
+        </div>
       </div>
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Generate</button>
+      <div style={{ marginTop: "10px" }}> {/* Add margin-top to create space above the Generate button */}
+        <GenerateButton />
+      </div>
     </div>
   );
 };
