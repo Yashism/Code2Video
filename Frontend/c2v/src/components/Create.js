@@ -3,7 +3,7 @@ import ConceptButton from "./ConceptBtn";
 import CodeButton from "./CodeBtn";
 import MenuButton from "./MenuBtn";
 import OptButton from "./OptionBtn";
-import GenerateButton from "./Generate";
+import GenerateButton from "./GenerateBtn";
 import "../Create.css"; // Make sure to import your CSS file
 
 const InputBox = () => {

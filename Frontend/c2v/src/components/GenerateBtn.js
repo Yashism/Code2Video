@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Generate.css'; // Import your CSS file
+import '../GenerateBtn.css'; // Import your CSS file
 
 const GenerateButton = () => {
   return (
