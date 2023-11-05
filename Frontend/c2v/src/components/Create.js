@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import ConceptButton from "./ConceptBtn";
-import CodeButton from "./CodeBtn";
-import MenuButton from "./MenuBtn";
 import OptButton from "./OptionBtn";
 import GenerateButton from "./GenerateBtn";
-import "../Create.css"; // Make sure to import your CSS file
+import "../Create.css"; // import your CSS file
 
 const InputBox = () => {
   const [text, setText] = useState('');
@@ -14,14 +11,14 @@ const InputBox = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <p className="text-lg font-semibold mb-2">Ready to see your code come to life? Enter your code or a concept below to get started.</p>
+    <div className="create flex flex-col justify-center items-center">
+      <p className="text-lg font-semibold mb-2">Video Generator</p>
       <textarea
         id="textbox"
-        className="w-full h-40 p-4 border border-gray-300 rounded-md"
+        className="w-full h-60 p-4 border border-gray-400 rounded-md"
         value={text}
         onChange={handleChange}
-        placeholder="Start typing here"
+        placeholder="Ready to see your code come to life? Enter your code or a concept to get started."
         style={{ margin: "10px 0" }} 
       ></textarea>
       <div className="topline"></div>

@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import Home from "./Home";
 import Create from "./Create";
 import Projects from "./Projects";
+import UserSettings from "./Settings";
 import { useAuth } from "../contexts/AuthContext";
 
 
@@ -39,6 +40,8 @@ function App() {
               <Route path="/ForgotPassword" element={<ForgotPassword />} />
               <Route path="/Create" element={<Create />} />
               <Route path="/Projects" element={<Projects />} />
+              <Route path="/Settings" element={<UserSettings />} />
+
 
               {/* Use PrivateRoute within a Route */}
               <Route
