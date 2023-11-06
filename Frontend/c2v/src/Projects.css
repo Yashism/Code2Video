@@ -1,0 +1,12 @@
+.create_project_btn{
+    font-size: 14px;
+    width: 180px;
+}
+
+.project_card{
+    width: 45vh;
+}
+
+.logout_btn{
+    font-size: 14px;
+}
