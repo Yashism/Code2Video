@@ -27,6 +27,34 @@ def index():
         f.write(response['choices'][0]['message']['content'])
 
     print("File: audio.txt")
+    # subprocess.call(["python", "gif_gen.py"])
+
+def code_sep():
+    #save audio.txt into a string
+    #save audio.txt into a string
+    with open("audio.txt", "r") as f:
+        audio = f.read()   
+    with open('code_input.txt', 'r') as f:
+        code = f.read()
+
+    summary_prompt = f"Separate this code {code} into smaller segments to explain them easily based on the generated audio script {audio}. Give me the separate code in this format: Code1.txt :<code>, Code2.txt:<code>, ..... Avoid starting with - Sure, ..... Start directly - Code1: ....."
+    
+    response = openai.ChatCompletion.create(
+      model="gpt-3.5-turbo",
+      messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": summary_prompt}
+        ]
+    )
+
+    with open("code.txt", "w") as f:
+        f.write(response['choices'][0]['message']['content'])
+
+    print("File: audio.txt")
     subprocess.call(["python", "gif_gen.py"])
     
+
+
+    
 index()
+code_sep()

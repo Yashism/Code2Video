@@ -25,7 +25,8 @@ for keyword in keywords:
     params = {
         'api_key': api_key,
         'q': keyword,
-        'limit': limit
+        'limit': limit,
+        'rating': 'g'
     }
 
     try:
