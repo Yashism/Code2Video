@@ -5,10 +5,14 @@
 
 .project_card{
     width: 45vh;
+    margin-top:100px;
 }
 
 .logout_btn{
+    text-align: center;
+    margin-bottom: 150px;
     font-size: 14px;
+    padding: 10px
 }
 
 ul.projects-list{
