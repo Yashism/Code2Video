@@ -24,8 +24,7 @@ function UserSettings() {
   };
 
   const saveSettings = () => {
-    // You can save the settings to your backend or perform other actions here
-    // For this example, we'll just log the updated settings
+    // save the settings to backend or perform other actions here
     console.log('Email:', email);
     console.log('New Password:', newPassword);
     console.log('Confirm Password:', confirmPassword);
