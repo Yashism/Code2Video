@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import OptButton from "./OptionBtn";
 import GenerateButton from "./GenerateBtn";
 import "../Create.css"; // import your CSS file
-import "../Projects.css" 
+
 
 const InputBox = () => {
   const [text, setText] = useState('');

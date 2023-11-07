@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import "../Projects.css" 
 
 const MyComponent = () => {
   const { logout } = useAuth();
@@ -49,8 +50,9 @@ const MyComponent = () => {
         <div className="flip-card__front project_card">
           <h1 className="text-3xl font-bold mb-4 title">User Projects</h1>
           
-          {projects.length > 0 ? (
-            <ul className="mt-4">
+          
+           {projects.length > 0 ? (
+            <ul className="mt-4 projects-list">
               {projects.map((project, index) => (
                 <li key={index} className="flex items-center mb-2">
                   {project.isEditing ? (
@@ -67,7 +69,7 @@ const MyComponent = () => {
                           });
                         }}
                         className="w-full p-2 rounded border mr-2"
-                      />
+                      /> 
                       <button
                         className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flip-card__btn"
                         onClick={() => handleSaveProject(index)}
@@ -84,14 +86,14 @@ const MyComponent = () => {
                   ) : (
                     <div className="flex-grow flex items-center w-full">
                       <div
-                        style={project.style}
+                        //style={project.style}
                         className="text-box p-2 rounded flex-grow cursor-pointer"
                         onClick={() => navigate("/Create")}
                       >
-                        {project.name}
+                        {`${index+1}) ${project.name}`}
                       </div>
                       <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded ml-2"
+                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flip-card__btn"
                         onClick={() => {
                           setProjects((prevProjects) => {
                             const updatedProjects = [...prevProjects];
@@ -103,7 +105,7 @@ const MyComponent = () => {
                         Edit
                       </button>
                       <button
-                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded ml-2"
+                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flip-card__btn"
                         onClick={() => handleDeleteProject(index)}
                       >
                         Delete
@@ -114,7 +116,7 @@ const MyComponent = () => {
               ))}
             </ul>
           ) : (
-            <p>No projects found.</p>
+            <p className="text-xl font-bold larger-bold-text">No projects found.</p>
           )}
           <div className="mb-4">
             <button

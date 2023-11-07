@@ -25,7 +25,7 @@ label {
 }
 
 input {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   margin-bottom: 15px;
   font-size: 16px;
@@ -36,5 +36,13 @@ button {
   font-size: 18px;
 }
 
+.larger-bold-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.no-marker {
+  list-style: none;
+}
 /* Add more styles as needed */
 
