@@ -1,0 +1,47 @@
+Code1.txt:
+
+```
+def merge(left, right):
+    # Function to merge two sorted lists into a single, sorted list
+    
+    # Start by creating an empty list to store the result
+    merged = []
+    
+    # Initialize two pointers, one for each input list
+    left_ptr = 0
+    right_ptr = 0
+    
+    # Continue until we have checked all elements from both lists
+    while left_ptr < len(left) and right_ptr < len(right):
+        # Compare the current elements of both lists
+        if left[left_ptr] <= right[right_ptr]:
+            # If the element in the left list is smaller or equal, add it to the merged list
+            merged.append(left[left_ptr])
+            # Move the pointer of left list forward
+            left_ptr += 1
+        else:
+            # If the element in the right list is smaller, add it to the merged list
+            merged.append(right[right_ptr])
+            # Move the pointer of the right list forward
+            right_ptr += 1
+    
+    # After one of the lists is exhausted, add the remaining elements of the other list to the merged list
+    while left_ptr < len(left):
+        merged.append(left[left_ptr])
+        left_ptr += 1
+    
+    while right_ptr < len(right):
+        merged.append(right[right_ptr])
+        right_ptr += 1
+    
+    # Return the final merged list
+    return merged
+```
+
+In this segment of code, we define a function called "merge" that takes two lists as input: "left" and "right". The purpose of this function is to merge these two lists into a single, sorted list. To achieve this, we declare an empty list called "merged" to store the result.
+
+Next, we set up two pointers, "left_ptr" and "right_ptr", to keep track of the position within each input list. These pointers will be used to compare elements from both lists and determine their ordering.
+
+We enter a loop that continues until we have checked all elements from both "left" and "right" lists. Within this loop, we compare the current elements pointed by the pointers. If the element in the "left" list is smaller or equal, we add it to the "merged" list and move the "left_ptr" forward. If the element in the "right" list is smaller, we add it to the "merged" list and move the "right_ptr" forward.
+
+Once one of the lists is exhausted, we iterate over the remaining elements of the other list and add them to the "merged" list. Finally, we return the "merged" list as the result of the function.

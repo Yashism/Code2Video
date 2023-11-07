@@ -2,7 +2,7 @@ import openai
 import subprocess
 
 model_id = "gpt-3.5-turbo"
-openai.api_key = "<Key>"
+openai.api_key = "Key"
 
 
 def index():

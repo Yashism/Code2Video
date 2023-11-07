@@ -38,12 +38,23 @@ function App() {
               <Route path="/Signup" element={<Signup />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/ForgotPassword" element={<ForgotPassword />} />
+<<<<<<< HEAD
               <Route path="/Create" element={<Create />} />
               <Route path="/Projects" element={<Projects />} />
               <Route path="/Settings" element={<UserSettings />} />
 
 
               {/* Use PrivateRoute within a Route */}
+=======
+              <Route
+                path="/Create"
+                element={<PrivateRoute element={<Create />} />}
+              />
+              <Route
+                path="/Projects"
+                element={<PrivateRoute element={<Projects />} />}
+              />
+>>>>>>> cd3f19cddf317a918e27cac6c13ef9c2c54a9845
               <Route
                 path="/Home"
                 element={<PrivateRoute element={<Home />} />}

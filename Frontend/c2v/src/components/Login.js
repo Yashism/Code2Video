@@ -70,7 +70,19 @@ export default function Login() {
           </form>
 
           <div className="link-container">
-            <Link to="/Signup" className="already_acc" style={{ color: "#fff" }}>
+            <Link
+              onClick={signInWithGoogle}
+              type="submit"
+              className="already_acc"
+              disabled={loading}
+            >
+              Sign In With Google
+            </Link>
+            <Link
+              to="/Signup"
+              className="already_acc"
+              style={{ color: "#fff" }}
+            >
               Sign Up
             </Link>
             <Link

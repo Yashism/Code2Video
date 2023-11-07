@@ -1,40 +1,31 @@
-import os
 import requests
-from bs4 import BeautifulSoup
-from googlesearch import search
+import re
 
-def get_images_from_google_search(query, num_images=5):
-    search_url = list(search(query + " images", num_results=1))[0]
-    headers = {
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+# Extract code snippets from code.txt
+code_snippets = {}
+with open("code.txt", "r") as file:
+    content = file.read()
+    matches = re.findall(r"(Code\d+.txt):\n```python\n(.*?)\n```", content, re.DOTALL)
+    for match in matches:
+        code_snippets[match[0]] = match[1].strip()
+
+# Generate image for each code snippet
+url = "https://carbonara.solopov.dev/api/cook"
+headers = {'Content-Type': 'application/json'}
+
+for file_name, code in code_snippets.items():
+    payload = {
+        "code": code,
+        "backgroundColor": "#7367F0"  # You can modify other parameters here
     }
     
-    response = requests.get(search_url, headers=headers)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    response = requests.post(url, headers=headers, json=payload)
     
-    # Find all image tags
-    img_tags = soup.find_all("img")
-    
-    # Extract URLs from the 'src' attribute
-    img_urls = [img['src'] for img in img_tags if 'src' in img.attrs and img['src'].startswith('http') and any(ext in img['src'] for ext in ['.jpg', '.jpeg', '.png'])]
-    
-    # Return first num_images URLs
-    return img_urls[:num_images]
+    if response.status_code == 200:
+        with open(f"../Generation/images/{file_name}.png", "wb") as img_file:
+            img_file.write(response.content)
+        print(f"Generated {file_name}.png")
+    else:
+        print(f"Failed to generate image for {file_name}", response.status_code)
 
-def download_image(url, save_path):
-    headers = {
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
-    }
-    response = requests.get(url, headers=headers, stream=True)
-    response.raise_for_status()
-    with open(save_path, 'wb') as file:
-        for chunk in response.iter_content(8192):
-            file.write(chunk)
 
-if __name__ == "__main__":
-    term = input("Enter the search term: ")
-    images = get_images_from_google_search(term)
-    for i, img_url in enumerate(images, 1):
-        save_path = os.path.join("..", "Generation", "images", f"downloaded_image_{i}.jpg")
-        download_image(img_url, save_path)
-        print(f"Image {i} saved to: {save_path}")
