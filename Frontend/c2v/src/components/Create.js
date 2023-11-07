@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import OptButton from "./OptionBtn";
 import GenerateButton from "./GenerateBtn";
-import "../Create.css"; // import your CSS file
+import "../Create.css"; // import  CSS file
 
 
 const InputBox = () => {
@@ -29,7 +29,7 @@ const InputBox = () => {
           <OptButton />
         </div>
       </div>
-      <div style={{ marginTop: "10px" }}> {/* Add margin-top to create space above the Generate button */}
+      <div style={{ marginTop: "10px" }}> 
         <GenerateButton />
       </div>
     </div>
