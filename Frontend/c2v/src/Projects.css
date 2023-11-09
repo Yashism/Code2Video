@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .create_project_btn{
     font-size: 14px;
     width: 180px;
@@ -23,4 +24,35 @@ ul.projects-list{
 .project_card{
     max-height: 1000px;
     overflow-y: auto;
+=======
+.create_project_btn{
+    font-size: 14px;
+    width: 180px;
+}
+
+.project_card{
+    width: 45vh;
+    margin-top:100px;
+}
+
+.logout_btn{
+    text-align: center;
+    margin-bottom: 150px;
+    font-size: 14px;
+    padding: 10px
+}
+
+ul.projects-list{
+    list-style-type: none;
+    padding: 0;
+}
+
+.left-align-text{
+    text-align: left;
+}
+
+.project_card{
+    max-height: 1000px;
+    overflow-y: auto;
+>>>>>>> d70762d655f88998c79884f76c3509ae5e55cf8f
 }
