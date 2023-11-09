@@ -1,9 +1,9 @@
 import React from 'react';
 import '../GenerateBtn.css'; // Import your CSS file
 
-const GenerateButton = () => {
+const GenerateButton = ({onGenerateClick}) => {
   return (
-    <button className="full-rounded"> {/* Use className instead of class */}
+    <button onClick={onGenerateClick} className="full-rounded"> {/* Use className instead of class */}
       <span>Generate</span>
       <div className="border full-rounded"></div>
     </button>

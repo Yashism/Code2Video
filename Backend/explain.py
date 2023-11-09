@@ -1,6 +1,6 @@
 from moviepy.editor import VideoFileClip, ImageSequenceClip, concatenate_videoclips, AudioFileClip
 import os
-
+import subprocess
 # Define the paths to the image and GIF folders and the audio file
 image_folder = "../Generation/images/"
 gif_folder = "../Generation/gifs/"
@@ -46,5 +46,5 @@ final_video = concatenate_videoclips(final_clips, method="compose")
 final_video = final_video.set_audio(audio_clip)
 
 # Export the final video
-final_video.write_videofile("output_video.mp4", codec="libx264", audio_codec="aac")
+final_video.write_videofile("../Generation/videos/output_video.mp4", codec="libx264", audio_codec="aac")
 

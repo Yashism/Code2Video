@@ -3,7 +3,7 @@ import os
 import shutil
 import subprocess
 
-api_key = '<Key>'
+api_key = 'FWPKeBVWaHsVnuxffNaUthfVqQ44zlsl'
 limit = 1  # Number of results you want to retrieve
 
 # Define the API endpoint URL
@@ -57,4 +57,4 @@ for keyword in keywords:
         
 print("Generating images...")
 print("Generating audio...")
-subprocess.call(["python3", "tts.py"])
+subprocess.call(["python3", "imager.py"])

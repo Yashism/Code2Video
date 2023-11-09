@@ -2,14 +2,14 @@ import openai
 import subprocess
 
 model_id = "gpt-3.5-turbo"
-openai.api_key = "<Key>"
+openai.api_key = "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"
 
 
 def index():
-    print("Please enter the code: ")
-    code = input()
-    with open('code_input.txt', 'w') as f:
-        f.write(code)    
+    # print("Please enter the code: ")
+    # code = input()
+    # with open('code_input.txt', 'w') as f:
+    #     f.write(code)    
     with open('code_input.txt', 'r') as f:
         content = f.read()
 

@@ -1,4 +1,5 @@
 import requests
+import subprocess
 
 CHUNK_SIZE = 1024
 url = "https://api.elevenlabs.io/v1/text-to-speech/TX3LPaxmHKxFdv7VOQHJ" 
@@ -6,7 +7,7 @@ url = "https://api.elevenlabs.io/v1/text-to-speech/TX3LPaxmHKxFdv7VOQHJ"
 headers = {
     "Accept": "audio/mpeg",
     "Content-Type": "application/json",
-    "xi-api-key": "<Key>"  
+    "xi-api-key": "c8e16425265a62a0dcfdaeacb069d82b"  
 }
 
 # Take text from audio.txt
@@ -31,6 +32,7 @@ if response.status_code == 200:
             if chunk:
                 f.write(chunk)
     print("Text-to-speech conversion successful. Audio saved as 'output.mp3'.")
+    subprocess.call(['python3', 'explain.py'])
 else:
     print(f"Text-to-speech conversion failed with status code: {response.status_code}")
     print(response.text)

@@ -4,7 +4,7 @@ import "../App.css"; // Import the CSS
 import Signup from "./Signup";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Login from "./Login";
 import ForgotPassword from "./ForgotPassword";
 import PrivateRoute from "./PrivateRoute";

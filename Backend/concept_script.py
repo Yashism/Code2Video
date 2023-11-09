@@ -2,14 +2,10 @@ import openai
 import subprocess
 
 model_id = "gpt-3.5-turbo"
-openai.api_key = "Key"
+openai.api_key = "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"
 
 
 def index():
-    print("Please enter the concept: ")
-    concept = input()
-    with open('concept_input.txt', 'w') as f:
-        f.write(concept)    
     with open('concept_input.txt', 'r') as f:
         content = f.read()
     print("Generating script...")
