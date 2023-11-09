@@ -5,6 +5,7 @@ function UserSettings() {
   const [email, setEmail] = useState('johndoe@example.com');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [openaiKey, setOpenAIKey] = useState(''); // State for the OpenAI API key
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -18,12 +19,16 @@ function UserSettings() {
     setConfirmPassword(e.target.value);
   };
 
+  const handleOpenAIKeyChange = (e) => {
+    setOpenAIKey(e.target.value);
+  };
+
   const saveSettings = () => {
-    // You can save the settings to your backend or perform other actions here
-    // For this example, we'll just log the updated settings
+    // save the settings to backend or perform other actions here
     console.log('Email:', email);
     console.log('New Password:', newPassword);
     console.log('Confirm Password:', confirmPassword);
+    console.log('OpenAI API Key:', openaiKey); // Log the OpenAI API key
   };
 
   return (
@@ -40,6 +45,10 @@ function UserSettings() {
       <div className="input-group">
         <label>Confirm Password:</label>
         <input type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} />
+      </div>
+      <div className="input-group">
+        <label>OpenAI API Key:</label>
+        <input type="text" value={openaiKey} onChange={handleOpenAIKeyChange} />
       </div>
       <button onClick={saveSettings}>Save Settings</button>
     </div>
