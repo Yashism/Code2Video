@@ -20,9 +20,9 @@ num_images = len(image_files)
 total_clips = num_gifs + num_images
 clip_duration = total_duration / total_clips
 
-# Create video clips from the GIFs and images
-gif_clips = [VideoFileClip(gif_file, audio=False).loop() for gif_file in gif_files]
+gif_clips = [VideoFileClip(gif_file, audio=False).loop().set_duration(clip_duration) for gif_file in gif_files]
 image_clips = [ImageSequenceClip([image_file], fps=24, durations=[clip_duration]) for image_file in image_files]
+
 
 # Create a list to hold the final clips
 final_clips = []
@@ -33,18 +33,28 @@ image_index = 0
 
 while gif_index < num_gifs or image_index < num_images:
     if gif_index < num_gifs:
-        final_clips.append(gif_clips[gif_index].subclip(0, clip_duration))
+        gif_clip = gif_clips[gif_index].subclip(0, clip_duration)
+        if gif_clip.duration is None:
+            gif_clip = gif_clip.set_duration(clip_duration)
+        final_clips.append(gif_clip)
         gif_index += 1
     if image_index < num_images:
-        final_clips.append(image_clips[image_index].subclip(0, clip_duration))
+        image_clip = image_clips[image_index].subclip(0, clip_duration)
+        if image_clip.duration is None:
+            image_clip = image_clip.set_duration(clip_duration)
+        final_clips.append(image_clip)
         image_index += 1
 
 # Concatenate the clips
 final_video = concatenate_videoclips(final_clips, method="compose")
 
+# Set the fps for the final video explicitly if not set
+if not hasattr(final_video, 'fps') or final_video.fps is None:
+    final_video.fps = 24  # Set to a default value like 24 fps
+
 # Set the audio of the final video
 final_video = final_video.set_audio(audio_clip)
 
 # Export the final video
-final_video.write_videofile("../Generation/videos/output_video.mp4", codec="libx264", audio_codec="aac")
+final_video.write_videofile("../Frontend/c2v/src/videos/output_video.mp4", codec="libx264", audio_codec="aac", fps=final_video.fps)
 
