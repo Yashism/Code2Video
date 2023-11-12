@@ -14,15 +14,15 @@ def generate_video():
     if input_type == 'code':
         # Save the code to a file and call a script
         code = content.get('code', '')
-        with open('code.txt', 'w') as code_file:
+        with open('../Generation/data/code.txt', 'w') as code_file:
             code_file.write(code)
-        subprocess.call(["python3", "code_script.py", 'code.txt'])
+        subprocess.call(["python3", "code_script.py", '../Generation/data/code.txt'])
     else:
         # Directly pass the text to the script
         text = content.get('text', '')
-        with open('concept_input.txt', 'w') as concept_file:
+        with open('../Generation/data/concept_input.txt', 'w') as concept_file:
             concept_file.write(text)
-        subprocess.call(["python3", "concept_script.py", 'concept_input.txt'])
+        subprocess.call(["python3", "concept_script.py", '../Generation/data/concept_input.txt'])
     
     # Your video generation logic here
     

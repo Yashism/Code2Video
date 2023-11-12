@@ -1,1 +1,1 @@
-Quick Sort
+Breadth-First Search (BFS)

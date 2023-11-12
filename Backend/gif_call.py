@@ -3,7 +3,7 @@ import os
 import shutil
 import subprocess
 
-api_key = 'FWPKeBVWaHsVnuxffNaUthfVqQ44zlsl'
+api_key = '1hd2o2OXUEa53415awq7eyQ6XMZrKjBy'
 limit = 1  # Number of results you want to retrieve
 
 # Define the API endpoint URL
@@ -14,7 +14,7 @@ if not os.path.exists('gifs'):
     os.makedirs('gifs')
 
 # Read keywords from the file
-with open('gif_keyword.txt', 'r') as f:
+with open('../Generation/data/gif_keyword.txt', 'r') as f:
     keywords = f.read().split(',')
 
 # For each keyword, fetch and save a GIF
@@ -57,4 +57,4 @@ for keyword in keywords:
         
 print("Generating images...")
 print("Generating audio...")
-subprocess.call(["python3", "imager.py"])
+subprocess.call(["python3", "concept_image_gen.py"])

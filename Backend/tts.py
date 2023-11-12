@@ -11,7 +11,7 @@ headers = {
 }
 
 # Take text from audio.txt
-with open('audio.txt', 'r') as f:
+with open('../Generation/data/audio.txt', 'r') as f:
     text_to_convert = f.read()
 
 data = {
