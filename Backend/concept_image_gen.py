@@ -1,10 +1,13 @@
 import openai
 import subprocess
 import requests
-import shutil
+import shutil, os
 import concurrent.futures
+from dotenv import load_dotenv
 
-openai.api_key = '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'
+load_dotenv()
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def image_gen():
     with open('../Generation/data/audio.txt', 'r') as f:

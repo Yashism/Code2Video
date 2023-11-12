@@ -56,5 +56,5 @@ if not hasattr(final_video, 'fps') or final_video.fps is None:
 final_video = final_video.set_audio(audio_clip)
 
 # Export the final video
-final_video.write_videofile("../Frontend/src/videos/output_video.mp4", codec="libx264", audio_codec="aac", fps=final_video.fps)
+final_video.write_videofile("../Frontend/c2v/src/videos/output_video.mp4", codec="libx264", audio_codec="aac", fps=final_video.fps)
 

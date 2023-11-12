@@ -1,5 +1,9 @@
 import requests
-import subprocess
+import subprocess,os
+from dotenv import load_dotenv
+
+load_dotenv()
+api_key = os.getenv("ELEVENLABS_API_KEY")
 
 CHUNK_SIZE = 1024
 url = "https://api.elevenlabs.io/v1/text-to-speech/TX3LPaxmHKxFdv7VOQHJ" 
@@ -7,7 +11,7 @@ url = "https://api.elevenlabs.io/v1/text-to-speech/TX3LPaxmHKxFdv7VOQHJ"
 headers = {
     "Accept": "audio/mpeg",
     "Content-Type": "application/json",
-    "xi-api-key": "c8e16425265a62a0dcfdaeacb069d82b"  
+    "xi-api-key": api_key  
 }
 
 # Take text from audio.txt

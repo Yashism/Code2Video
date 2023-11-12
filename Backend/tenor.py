@@ -1,8 +1,9 @@
 import requests
 import json, os, subprocess
+from dotenv import load_dotenv
 
-# Set the API key and limit
-apikey = "AIzaSyDqOScgUKmBj0glykT7QR7Bnc_gT7XbM70"  # Replace with your API key
+load_dotenv()
+apikey = os.getenv("TENOR_API_KEY")
 lmt = 1
 ckey = "Code2Video"  # Set the client_key for the integration
 

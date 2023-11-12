@@ -1,7 +1,10 @@
 from openai import OpenAI
-import subprocess
+import subprocess, os
+from dotenv import load_dotenv
 
-client = OpenAI(api_key="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")
+load_dotenv()
+client = OpenAI(api_key = os.getenv("OPENAI_API_KEY"))
+
 
 def index():
     with open('../Generation/data/audio.txt', 'r') as f:
