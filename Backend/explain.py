@@ -55,6 +55,17 @@ if not hasattr(final_video, 'fps') or final_video.fps is None:
 # Set the audio of the final video
 final_video = final_video.set_audio(audio_clip)
 
-# Export the final video
+# save and export the video
 final_video.write_videofile("../Frontend/c2v/src/videos/output_video.mp4", codec="libx264", audio_codec="aac", fps=final_video.fps)
 
+# use ffmpeg to add subtitles
+subprocess.call(['ffmpeg', '-i', '../Frontend/c2v/src/videos/output_video.mp4', '-vf', 'subtitles=../Generation/data/generated_subtitles.srt', '../Frontend/c2v/src/videos/output_video_subtitled.mp4'])
+
+# delete the original video
+os.remove("../Frontend/c2v/src/videos/output_video.mp4")
+
+# rename the subtitled video
+os.rename("../Frontend/c2v/src/videos/output_video_subtitled.mp4", "../Frontend/c2v/src/videos/output_video.mp4")
+
+# print when done
+print("Video saved as 'output_video.mp4'.")
