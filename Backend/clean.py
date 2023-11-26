@@ -15,3 +15,5 @@ for file in files:
         print(f"File {file} has been cleared.")
     except Exception as e:
         print(f"Error occurred while clearing file {file}. Error: {str(e)}")
+        
+        

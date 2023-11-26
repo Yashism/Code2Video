@@ -10,6 +10,7 @@ import ForgotPassword from "./ForgotPassword";
 import PrivateRoute from "./PrivateRoute";
 import Home from "./Home";
 import Create from "./Create";
+// import Hello from "./hello";
 import Projects from "./Projects";
 import UserSettings from "./Settings";
 import { useAuth } from "../contexts/AuthContext";
@@ -18,9 +19,9 @@ import { useAuth } from "../contexts/AuthContext";
 function DefaultComponent() {
   const { currentUser } = useAuth();
   return currentUser ? (
-    <Navigate to="/Projects" replace />
+    <Navigate to="/projects" replace />
   ) : (
-    <Navigate to="/Login" replace />
+    <Navigate to="/login" replace />
   );
 }
 
@@ -35,27 +36,28 @@ function App() {
           <AuthProvider>
             <Routes>
               <Route path="/" element={<DefaultComponent />} />
-              <Route path="/Signup" element={<Signup />} />
-              <Route path="/Login" element={<Login />} />
-              <Route path="/ForgotPassword" element={<ForgotPassword />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
               {/* <Route path="/Create" element={<Create />} />
               <Route path="/Projects" element={<Projects />} /> */}
-              <Route path="/Settings" element={<UserSettings />} />
+              <Route path="/settings" element={<UserSettings />} />
 
 
               {/* Use PrivateRoute within a Route */}
               <Route
-                path="/Create"
+                path="/create"
                 element={<PrivateRoute element={<Create />} />}
+                // element={<PrivateRoute element={<Hello />} />}
               />
               <Route
-                path="/Projects"
+                path="/projects"
                 element={<PrivateRoute element={<Projects />} />}
               />
-              <Route
-                path="/Home"
+              {/* <Route
+                path="/home"
                 element={<PrivateRoute element={<Home />} />}
-              />
+              /> */}
             </Routes>
           </AuthProvider>
         </Router>
