@@ -54,3 +54,53 @@ body {
   background-color: #d83a3a;
 }
 
+.button-container {
+  display: flex;
+  margin-top: 2px;
+}
+
+.button {
+  flex: 1;
+  margin-right: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button-container p {
+  margin-right: 10px; /* Adjust the margin as needed */
+  font-weight: bold;
+  font-size: 20px; /* Adjust the font size as needed */
+  color: white;
+}
+
+.button-beginner {
+  background-color: #3498db; /* Blue color */
+  color: white;
+  font-weight: bold;
+}
+
+.button-programmer {
+  background-color: #2ecc71; /* Green color */
+  color: white;
+  font-weight: bold;
+}
+
+.button-academic {
+  background-color: #f5190a; /* red color */
+  color: white;
+  font-weight: bold;
+}
+
+.button-funny {
+  background-color: #f3cb06; /* yellow color */
+  color: white;
+  font-weight: bold;
+}
+
+.button:hover {
+  transform: scale(1.05); /* Increase the size on hover */
+  transition: transform 0.2s ease-in-out; /* Add a smooth transition effect */
+}

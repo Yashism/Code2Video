@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom";
 import Login from "./Login";
 import ForgotPassword from "./ForgotPassword";
 import PrivateRoute from "./PrivateRoute";
-import Home from "./Home";
+// import Home from "./Home";
 import Create from "./Create";
 // import Hello from "./hello";
 import Projects from "./Projects";
