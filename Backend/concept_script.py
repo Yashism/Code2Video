@@ -21,6 +21,6 @@ def index():
     with open("../Generation/data/audio.txt", "w") as f:
         f.write(response.choices[0].message.content)
 
-    subprocess.call(["python3", "gif_gen.py"])
+    #subprocess.call(["python3", "gif_gen.py"])
     
 index()

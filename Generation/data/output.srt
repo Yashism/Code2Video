@@ -1,0 +1,76 @@
+1
+00:00:00,000 --> 00:00:04,173
+Imagine you're playing with your toy cars
+
+2
+00:00:04,173 --> 00:00:07,153
+and you made a long
+
+3
+00:00:07,153 --> 00:00:13,711
+straight road with your building blocks where your cars will race
+
+4
+00:00:13,711 --> 00:00:22,056
+But let's say you only have a small magnifying glass to look at them
+
+5
+00:00:22,056 --> 00:00:29,209
+so you can only see a few of your cars at once
+
+6
+00:00:29,209 --> 00:00:33,978
+Think of this magnifying glass as a "window"
+
+7
+00:00:33,978 --> 00:00:45,304
+that you slide along the straight road (the "array" or "list") to view different sets of cars (or "subarrays")
+
+8
+00:00:45,304 --> 00:00:50,669
+This is what we call the sliding window concept
+
+9
+00:00:50,669 --> 00:00:53,054
+In computing and mathematics
+
+10
+00:00:53,054 --> 00:01:04,380
+it's a way of looking at a larger problem - like the whole row of cars - in smaller
+
+11
+00:01:04,380 --> 00:01:13,322
+more manageable chunks - like the few cars you can see through your magnifying glass
+
+12
+00:01:13,322 --> 00:01:21,071
+You move the window from one end of the row to the other
+
+13
+00:01:21,071 --> 00:01:25,840
+while keeping the size of the window constant
+
+14
+00:01:25,840 --> 00:01:31,801
+meaning you're always looking at the same number of cars
+
+15
+00:01:31,801 --> 00:01:37,166
+just different ones as you move along the road
+
+16
+00:01:37,166 --> 00:01:43,127
+Want to know which of your cars are the fastest
+
+17
+00:01:43,127 --> 00:01:58,626
+or how many red cars are in your collection? The sliding window can help to figure this out by examining all the cars in a simplified
+
+18
+00:01:58,626 --> 00:01:59,818
+orderly way
+
+19
+00:01:59,818 --> 00:02:06,971
+It’s like a pair of roving eyes moving across your car race!
+

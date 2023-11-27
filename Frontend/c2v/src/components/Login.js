@@ -15,7 +15,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   if (currentUser) {
-    navigate("/Projects");
+    navigate("/projects");
   }
 
   async function handleSubmit(e) {
@@ -26,7 +26,7 @@ export default function Login() {
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
       console.log("Login succesful");
-      navigate("/Projects");
+      navigate("/projects");
     } catch (error) {
       console.error("Failed to sign in: ", error.message);
       setError("Failed to sign in");
@@ -79,14 +79,14 @@ export default function Login() {
               Sign In With Google
             </Link>
             <Link
-              to="/Signup"
+              to="/signup"
               className="already_acc"
               style={{ color: "#fff" }}
             >
               Sign Up
             </Link>
             <Link
-              to="/ForgotPassword"
+              to="/forgot-password"
               className="already_acc"
               style={{
                 color: "#fff",

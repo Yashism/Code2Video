@@ -23,7 +23,7 @@ const MyComponent = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      navigate("/Login");
+      navigate("/login");
     } catch (error) {
       console.error("Failed to log out: ", error.message);
     }
@@ -88,7 +88,7 @@ const MyComponent = () => {
                       <div
                         //style={project.style}
                         className="text-box p-2 rounded flex-grow cursor-pointer"
-                        onClick={() => navigate("/Create")}
+                        onClick={() => navigate("/create")}
                       >
                         {`${index + 1}) ${project.name}`}
                       </div>
