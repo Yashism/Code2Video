@@ -1,0 +1,60 @@
+div {
+    position: relative;
+  }
+ 
+  /* Dropdown.css */
+ 
+ .Btn {
+    display: flex;
+    align-items: center;
+    background-color: transparent; /* Adjust the background color as needed */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+     position: absolute;
+     bottom: 15px;
+     right: 10px;
+  }
+  
+ /* .Btn:hover {
+    background-color: #0056b3; /* Adjust the hover background color as needed */
+  /* } */
+  .Btn:hover .text {
+    opacity: 1;
+    transition-duration: .7s;
+  }
+  .text {
+    margin-left: 8px;
+  }
+  .Tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .Btn:hover .Tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  
+  
+  
+  
+  
+  
+  /* Additional styles for SVG if needed */
+  
