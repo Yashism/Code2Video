@@ -14,6 +14,8 @@ import Create from "./Create";
 import Projects from "./Projects";
 import UserSettings from "./Settings";
 import { useAuth } from "../contexts/AuthContext";
+import Navbar from "./Navbar";
+
 
 
 function DefaultComponent() {
