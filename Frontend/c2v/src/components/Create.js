@@ -74,7 +74,7 @@ const InputBox = () => {
           onClick={handleDropdownClick}
         />
       </div>
-      <div style={{ marginTop: "10px", zIndex: '1000' }}></div>
+      <div style={{ marginTop: "10px"}}></div>
       {showAdditionalTextBox && (
         <textarea
           id="additional-textbox"
