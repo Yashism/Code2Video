@@ -15,7 +15,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   if (currentUser) {
-    navigate("/projects");
+    navigate("/Projects");
   }
 
   async function handleSubmit(e) {
@@ -26,7 +26,7 @@ export default function Login() {
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
       console.log("Login succesful");
-      navigate("/projects");
+      navigate("/Projects");
     } catch (error) {
       console.error("Failed to sign in: ", error.message);
       setError("Failed to sign in");
@@ -35,7 +35,7 @@ export default function Login() {
   }
 
   return (
-    <div className="wrapper">
+    <div className="wrapper" style={{ paddingTop: "200px" }}>
       <div className="flip-card__inner">
         <div className="flip-card__front">
           <div className="title">Login</div>
@@ -79,14 +79,14 @@ export default function Login() {
               Sign In With Google
             </Link>
             <Link
-              to="/signup"
+              to="/Signup"
               className="already_acc"
               style={{ color: "#fff" }}
             >
               Sign Up
             </Link>
             <Link
-              to="/forgot-password"
+              to="/ForgotPassword"
               className="already_acc"
               style={{
                 color: "#fff",

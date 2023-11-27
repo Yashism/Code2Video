@@ -32,7 +32,7 @@ function UserSettings() {
   };
 
   return (
-    <div className="user-settings">
+    <div className="user-settings" style={{ marginTop: '370px' }}>
       <h2>User Settings</h2>
       <div className="input-group">
         <label>Email:</label>
