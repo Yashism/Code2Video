@@ -10,6 +10,8 @@ def generate_video():
     content = request.json
     print(content)
     input_type = content.get('type')
+
+    
     
     if input_type == 'code':
         # Save the code to a file and call a script
@@ -24,8 +26,12 @@ def generate_video():
             concept_file.write(text)
         subprocess.call(["python3", "concept_script.py", '../Generation/data/concept_input.txt'])
     
+    # Update status after completion
+    
+
     # Your video generation logic here
     
+
     # Assuming the video is saved as output.mp4 in static folder
     return jsonify({'video_url': '../Generation/videos/output_video.mp4'})
 
