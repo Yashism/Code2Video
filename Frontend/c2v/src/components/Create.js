@@ -16,6 +16,8 @@ const InputBox = () => {
   const [text, setText] = useState(""); // For general text
   const [code, setCode] = useState(""); // Specifically for code input
   const [inputType, setInputType] = useState(""); // Start with no type selected
+  
+
   const videoRef = useRef(null);
   const [showAdditionalTextBox, setShowAdditionalTextBox] = useState(false);
   const [additionalText, setAdditionalText] = useState('');
@@ -43,16 +45,20 @@ const InputBox = () => {
     setCode("");
   };
 
-  const handleGenerateClick = () => {
+  const handleGenerateClick =  () => {
     // Your logic for generating the video URL based on text or code
     // For example, if you are using the 'video' import, you can set the URL like this:
     // const generatedVideoUrl = video;
 
+    
     // Set the generated video URL to videoRef
     if (videoRef.current) {
       videoRef.current.src = video; // Assuming 'video' is the correct URL
     }
-  };
+  
+
+  
+};
 
   const skipForward = () => {
     if (videoRef.current) {
@@ -132,5 +138,6 @@ const InputBox = () => {
     </div>
   );
 };
+
 
 export default InputBox;
