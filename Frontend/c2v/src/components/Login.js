@@ -35,7 +35,7 @@ export default function Login() {
   }
 
   return (
-    <div className="wrapper">
+    <div className="wrapper" style={{ paddingTop: "90px" }}>
       <div className="flip-card__inner">
         <div className="flip-card__front">
           <div className="title">Login</div>

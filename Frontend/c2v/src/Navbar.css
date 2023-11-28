@@ -1,0 +1,77 @@
+/* Navbar.css */
+
+/* Add space between the Navbar elements */
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust the margin as needed */
+    background-color: white; /* Replace with your desired background color */
+    width: 90%; /* Ensure the Navbar stretches the entire width */
+    margin: 0; /* Ensure there is no extra margin on the right */
+    position: fixed;
+    top: 20px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 13px;
+    z-index: 1000; /* Set a higher z-index value */
+  }
+  
+  /* Style for the Navbar.Brand */
+  .navbar-brand {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    font-family: monospace; /* Change to your desired code-like font */
+    color: black; /* Change the text color of the brand */
+    font-weight: bold; /* Make the text bold */
+  }
+  
+  /* Style for the Nav.Link elements in the "Nav" class */
+  .navbar-nav .nav-link {
+    margin: 0 10px; /* Adjust the margin between links */
+    padding: 10px; /* Add padding to each link */
+    color: #333; /* Change the text color of the links */
+    font-family: 'Arial', sans-serif; /* Change the font family to Arial */
+    font-weight: bold; /* Increase font weight */
+  
+  }
+  .navbar-nav .nav-btn-link-logout {
+    /* Add extra styles for the Logout button */
+    background-color: #48ffd5; /* Green background color for "Logout" */
+    color: white; /* White text color */
+    border-radius: 5px; /* Add rounded corners */
+    padding: 10px; /* Add padding to the Logout button */
+    font-family: 'Arial', sans-serif; /* Change the font family to Arial */
+    font-weight: bold; /* Increase font weight */
+    text-decoration: none; /* Remove default underline */
+  }
+  /* Style for the active Nav.Link */
+  .navbar-nav .nav-item.active .nav-link {
+    background-color: #555; /* Add background color for active link */
+  }
+  
+  /* Style for the hovered Nav.Link */
+  .navbar-nav .nav-item:hover .nav-link {
+    background-color: #777; /* Add background color for hovered link */
+  }
+  
+  /* Style for the "Logout" link when currentUser is present */
+  .navbar-nav .nav-item:last-child .nav-link {
+    margin-left: 0px; /* Add extra margin for the last link (Logout) */
+    background-color: #4CAF50; /* Green background color for "Logout" */
+    color: white; /* White text color */
+    border-radius: 5px; /* Add rounded corners */
+    z-index: 100111;
+  }
+  
+  /* Hide the toggle button */
+  .navbar-toggler {
+    display: none;
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 768px) {
+    .navbar {
+      width: 100%;
+    }
+  }

@@ -1,8 +1,15 @@
 .input-container {
-  position: relative;
-  display: flex; /* property to center content */
-  align-items: center; /* Vertically center the content */
-  justify-content: center; /* Horizontally center the content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+button1 {
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
 }
 
 #textbox {
@@ -11,9 +18,12 @@
   --font-color-sub: #7e7e7e;
   --bg-color: #111111;
   --main-color: #fefefe;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0;
   padding: 10px;
-  height: 200px; 
-  width: 380px;
+  height: 30px; 
+  width: 600px;
   border-radius: 5px;
   border: 2px solid var(--main-color);
   background-color: var(--bg-color);
@@ -37,6 +47,7 @@
   transition: all 0.5s;
   transform: scale(0);
   z-index: -1;
+  
 }
 
 #textbox:focus ~ .label {
@@ -51,12 +62,58 @@
 }
 
 body {
+  justify-content: center;
+  height: 100vh;
   background-color: #d83a3a;
 }
 
-.button-container {
-  display: flex;
-  margin-top: 2px;
+#additional-textbox {
+  --input-focus: #2d8cf0;
+  --font-color: #fefefe;
+  --font-color-sub: #7e7e7e;
+  --bg-color: #111111;
+  --main-color: #fefefe;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0;
+  padding: 10px;
+  height: 120px; 
+  width: 600px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  outline: none;
+}
+
+#additional-textbox:focus {
+  box-shadow: none;
+  transition: all 0.5s;
+}
+
+.label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #000000;
+  transition: all 0.5s;
+  transform: scale(0);
+  z-index: -1;
+  
+}
+
+#additional-textbox:focus ~ .label {
+  top: -10px;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+
+.text-lg {
+  font-family: monospace;
+  font-size: 24px;
 }
 
 .button {
@@ -97,7 +154,7 @@ body {
 .button-funny {
   background-color: #f3cb06; /* yellow color */
   color: white;
-  font-weight: bold;
+  font-weight: bold; /* h */
 }
 
 .button:hover {

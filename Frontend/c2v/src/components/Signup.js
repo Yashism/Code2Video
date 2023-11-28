@@ -32,7 +32,7 @@ export default function Signup() {
   }
 
   return (
-    <div className="wrapper">
+    <div className="wrapper" style={{ paddingTop: "165px" }}>
       <div className="flip-card__inner">
         <div className="flip-card__front">
           <div className="title">Sign Up</div>

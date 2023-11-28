@@ -48,7 +48,7 @@ const MyComponent = () => {
 
   return (
     <>
-      <div className="wrapper">
+      <div className="wrapper" style={{ marginTop: "250px" }} >
         <div className="flip-card__inner">
           <div className="flip-card__front project_card">
             <h1 className="text-3xl font-bold mb-4 title">User Projects</h1>
