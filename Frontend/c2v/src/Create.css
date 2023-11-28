@@ -154,7 +154,7 @@ body {
 .button-funny {
   background-color: #f3cb06; /* yellow color */
   color: white;
-  font-weight: bold;
+  font-weight: bold; /* h */
 }
 
 .button:hover {
