@@ -13,6 +13,18 @@ def index():
     print("Fetching GIFs...")
     summary_prompt = f"Create only 10 gif keywords or phrase that have expression from this audio script. Give me just the keywords one by one without any numbering or text before it and no quotes just plain text: {content}"
     
+                # Customize prompts based on category
+    #  if category == "beginner":
+    #    summary_prompt = f"Create only 10 gif keywords or phrase that have expression from this audio script for beginners. Give me just the keywords one by one without any numbering or text before it and no quotes just plain text: {content}"
+    # elif category == "programmer":
+    #     summary_prompt = f"Create only 10 gif keywords or phrase that have expression from this audio script for programmers. Give me just the keywords one by one without any numbering or text before it and no quotes just plain text: {content}"
+    # elif category == "academic":
+    #     summary_prompt = f"Create only 10 gif keywords or phrase that have expression from this audio script for professors. Give me just the keywords one by one without any numbering or text before it and no quotes just plain text: {content}"
+    # elif category == "funny":
+    #     summary_prompt = f"Create only 10 gif keywords or phrase that have expression from this audio script using comedy. Give me just the keywords one by one without any numbering or text before it and no quotes just plain text: {content}"    else:
+    #     raise ValueError("Invalid category") 
+    
+
     response = client.chat.completions.create(
       messages=[
             {"role": "user", "content": summary_prompt}

@@ -15,6 +15,18 @@ def index():
 
     summary_prompt = f"Write a audio script explaining the code: {content}. Explan it like a 5 year old. Explain it in detail. Everything in 1 paragraph. Max 100 words. Start with the script. No text before it. Avoid starting with - Sure, ..... Start directly - In this code....."
     
+            # Customize prompts based on category
+    # if category == "beginner":
+    #     summary_prompt = f"Write a audio script explaining the code: {content}. Explan it like a 5 year old. Explain it in detail. Everything in 1 paragraph. Max 100 words. Start with the script. No text before it. Avoid starting with - Sure, ..... Start directly - In this code....."
+    # elif category == "programmer":
+    #     summary_prompt = f"Write a audio script explaining the code: {content}. Explan it like a programmer. Explain it in detail. Everything in 1 paragraph. Max 100 words. Start with the script. No text before it. Avoid starting with - Sure, ..... Start directly - In this code....."
+    # elif category == "academic":
+    #     summary_prompt = f"Write a audio script explaining the code: {content}. Explan it like a professor. Explain it in detail. Everything in 1 paragraph. Max 100 words. Start with the script. No text before it. Avoid starting with - Sure, ..... Start directly - In this code....."
+    # elif category == "funny":
+    #     summary_prompt = f"Write a audio script explaining the code: {content}. Explan it like a comedian. Explain it in detail. Everything in 1 paragraph. Max 100 words. Start with the script. No text before it. Avoid starting with - Sure, ..... Start directly - In this code....."
+    # else:
+    #     raise ValueError("Invalid category")
+
     response = openai.ChatCompletion.create(
       model="gpt-3.5-turbo",
       messages=[

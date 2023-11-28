@@ -15,6 +15,18 @@ def image_gen():
         
     prompt = f"Based on this video script extract possible images that can be created for a video explaining this concept. Images should be a placeholder for that sentence. Give them in a comma-separated format. There should not be anything else in the output: {script}"
 
+        # # Customize prompts based on category
+    # if category == "beginner":
+    #     prompt = f"Based on this video script extract possible images that can be created for a video explaining this concept for beginners. Images should be a placeholder for that sentence. Give them in a comma-separated format. There should not be anything else in the output: {script}"
+    # elif category == "programmer":
+    #     prompt = f"Based on this video script extract possible images that can be created for a video explaining this concept for programmers. Images should be a placeholder for that sentence. Give them in a comma-separated format. There should not be anything else in the output: {script}"
+    # elif category == "academic":
+    #     prompt = f"Based on this video script extract possible images that can be created for a video explaining this concept for professors. Images should be a placeholder for that sentence. Give them in a comma-separated format. There should not be anything else in the output: {script}"
+    # elif category == "funny":
+    #     prompt = f"Based on this video script extract possible funny and humorous images that can be created for a video explaining this concept. Images should be a placeholder for that sentence. Give them in a comma-separated format. There should not be anything else in the output: {script}"
+    # else:
+    #     raise ValueError("Invalid category")
+
     chat_completion = openai.chat.completions.create(
         messages=[
             {
