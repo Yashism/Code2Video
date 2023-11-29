@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore";
 import "../Projects.css" 
 
 
@@ -8,19 +9,26 @@ const MyComponent = () => {
   const { logout } = useAuth();
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
+  const db = getFirestore();
 
   
-  const handleCreateProject = () => {
+
+  
+  const handleCreateProject =  () => {
     setProjects((prevProjects) => [
       ...prevProjects,
-      {
-        name: "",
-        isEditing: true,
-        style: { backgroundColor: "black", color: "white" },
-      },
-    ]);
+    
+     {
+      name: "",
+      isEditing: true,
+      style: {backgroundColor: "black", color: "white"},
+    },
+  ]);
+    
+    
   };
 
+  
   const handleLogout = async () => {
     try {
       await logout();
@@ -44,6 +52,8 @@ const MyComponent = () => {
       updatedProjects[projectIndex].isEditing = false;
       return updatedProjects;
     });
+
+  
   };
 
   return (
